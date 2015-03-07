@@ -1,3 +1,3 @@
-%w{nodejs libsqlite3-dev}.each do |pkg|
+%w{nodejs}.each do |pkg|
   package pkg
 end

@@ -1,6 +1,6 @@
 Vagrant.configure(2) do |config|
-  config.vm.box = "opscode_ubuntu-14.04_chef-provisionerless"
-  config.vm.box_url = "http://opscode-vm-bento.s3.amazonaws.com/vagrant/virtualbox/opscode_ubuntu-14.04_chef-provisionerless.box"
+  config.vm.box = "CentOS64"
+  config.vm.box_url = "https://github.com/2creatives/vagrant-centos/releases/download/v6.5.3/centos65-x86_64-20140116.box"
 
   config.vm.network "private_network", ip: "192.168.33.30"
   config.vm.synced_folder "../dev", "/home/vagrant/dev", create: true, owner: "vagrant", group: "vagrant"
