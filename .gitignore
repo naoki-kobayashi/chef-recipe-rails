@@ -1,9 +1,7 @@
 .chef
 .vagrant
 clients
-cookbooks/apt
-cookbooks/ruby_build
-cookbooks/rbenv
+berks-cookbooks
 environments
 nodes
 roles
