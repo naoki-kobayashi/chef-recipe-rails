@@ -7,7 +7,7 @@ Chef Recipes of Rails
 * Vagrant: 1.7.2
 * Cmder: 1.1.4.1
 * Ubuntu: 14.04
-* Chef: 11.18.0
+* ChefDK: 0.6.0
 * Ruby: 2.1.5
 * Rails: 4.2.0
 
@@ -15,22 +15,18 @@ Chef Recipes of Rails
 
 ### Git
 
-[Vagrantfile](https://github.com/hommachirb/chef-recipe-rails)と`cookbook`をダウンロードします。
+[Vagrantfile](https://www.vagrantup.com)と[ChefDK](https://ownloads.chef.io/chef-dk/)をダウンロードします。
 (OSが`32bit`の場合は`box_url`を`ubuntu-14.04-i386_chef`に変更して下さい。)
 
 ```
-$ git clone https://github.com/hommachirb/chef-recipe-rails.git
+$ git clone https://github.com/naoki-kobayashi/chef-recipe-rails.git
 $ cd ./chef-recipe-rails
-$ edit Vagrantfile
 ```
 
-`rbenv`の`cookbook`をダウンロードします。
-（[berkshelf](http://berkshelf.com/)で収集する方法が便利ですね。）
+berkshelfで`cookbook`をダウンロードします。
 
 ```
-$ git clone https://github.com/opscode-cookbooks/apt.git ./cookbooks/apt
-$ git clone https://github.com/fnichol/chef-ruby_build.git ./cookbooks/ruby_build
-$ git clone https://github.com/fnichol/chef-rbenv.git ./cookbooks/rbenv
+$ berks vendor 
 ```
 
 ### Vagrant
@@ -41,10 +37,11 @@ $ git clone https://github.com/fnichol/chef-rbenv.git ./cookbooks/rbenv
 $ vagrant up
 ```
 
-ChefのRecipeを再実行するには`provision`コマンドを利用します。
+ChefのRecipeを再実行するには`provision`コマンドを利用すればいいはずですが、エラーが発生するので再起動します。
 
 ```
-$ vagrant provision
+$ rm .vagrant/machines/default/virtualbox/synced_folders 
+$ vagrant reload --provision
 ```
 
 ### Bundler

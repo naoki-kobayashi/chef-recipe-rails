@@ -11,8 +11,9 @@ Vagrant.configure(2) do |config|
 
   config.vm.provision "chef_zero" do |chef|
     chef.version = '11.18.0'
-    chef.cookbooks_path = "./cookbooks"
-    chef.add_recipe "apt"
+    chef.cookbooks_path = ["./cookbooks", "./berks-cookbooks"]
+    chef.add_recipe "vim"
+    chef.add_recipe "yum"
     chef.add_recipe "ruby_build"
     chef.add_recipe "rails_support"
     chef.add_recipe "rbenv::user"
